@@ -10,10 +10,13 @@ namespace NHibernate.Validator.Tests.DeepIntegration
 {
 	public abstract class AbstractMultipleCollectionFixture : PersistenceTest
 	{
-		protected abstract void AddToCollection(ICollection collection, Person person);
-		protected abstract void AddToCollection(ICollection<Person> collection, Person person);
-		protected abstract ICollection CreateCollection();
+		protected abstract ICollection<T> CreateCollection<T>();
 		protected abstract ICollection<Person> GCreateCollection();
+
+		protected void AddToCollection(ICollection<Person> collection, Person person)
+        {
+            collection.Add(person);
+        }
 
 		private Person CreateGrandparent()
 		{
@@ -36,7 +39,7 @@ namespace NHibernate.Validator.Tests.DeepIntegration
 				}
 			}
 
-			parent.Friends = CreateCollection();
+			parent.Friends = CreateCollection<Person>();
 			for (int i = 0; i < 3; i++)
 			{
 				Person friend = new Person("F" + i);

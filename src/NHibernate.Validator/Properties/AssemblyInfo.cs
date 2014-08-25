@@ -13,7 +13,7 @@ using System.Security;
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: CLSCompliantAttribute(true)]
+[assembly: CLSCompliantAttribute(false)]
 [assembly: AssemblyTitleAttribute("NHibernate.Validator")]
 [assembly: AssemblyDescriptionAttribute("NHibernate Validator")]
 [assembly: AssemblyCompanyAttribute("NHibernate Community - www.nhforge.org")]
@@ -23,6 +23,5 @@ using System.Security;
 [assembly: AssemblyInformationalVersionAttribute("1.3.2.4000")]
 [assembly: AssemblyFileVersionAttribute("1.3.2.4000")]
 [assembly: AssemblyDelaySignAttribute(false)]
-[assembly: AssemblyKeyFileAttribute("..\\..\\..\\..\\src\\NHibernate.Validator.snk")]
 [assembly: AllowPartiallyTrustedCallersAttribute()]
 

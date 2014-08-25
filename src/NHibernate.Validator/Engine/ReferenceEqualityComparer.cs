@@ -15,14 +15,18 @@ namespace NHibernate.Validator.Engine
 	[Serializable]
 	public class ReferenceEqualityComparer : IEqualityComparer<object>
 	{
-		public bool Equals(object x, object y)
-		{
-			return ReferenceEquals(x, y);
-		}
+        #region IEqualityComparer<object> Members
 
-		public int GetHashCode(object obj)
-		{
-			return RuntimeHelpers.GetHashCode(obj);
-		}
-	}
+        bool IEqualityComparer<object>.Equals(object x, object y)
+        {
+            return ReferenceEquals(x, y);
+        }
+
+        int IEqualityComparer<object>.GetHashCode(object obj)
+        {
+            return RuntimeHelpers.GetHashCode(obj);
+        }
+
+        #endregion
+    }
 }

@@ -6,51 +6,45 @@ namespace NHibernate.Validator.Tests.DeepIntegration
 {
 	public class Person
 	{
-		private ICollection<Person> children;
-		private ICollection friends;
-		private int id;
-		private string name;
-		private Person parent;
-
 		protected Person() {}
 
 		public Person(string name)
 		{
-			this.name = name;
+			Name = name;
 		}
 
 		public virtual int Id
 		{
-			get { return id; }
-			set { id = value; }
+            get;
+            set;
 		}
 
 		[NotEmpty, NotNull, Length(Min=2)]
 		public virtual string Name
 		{
-			get { return name; }
-			set { name = value; }
+            get;
+            set;
 		}
 
 		[Valid, Size(Max=10)]
 		public virtual ICollection<Person> Children
 		{
-			get { return children; }
-			set { children = value; }
+            get;
+            set;
 		}
 
-		[Valid, Size(Max=5)]
-		public virtual ICollection Friends
-		{
-			get { return friends; }
-			set { friends = value; }
-		}
+        [Valid, Size(Max = 5)]
+        public virtual ICollection<Person> Friends
+        {
+            get;
+            set;
+        }
 
 		[Valid]
 		public virtual Person Parent
 		{
-			get { return parent; }
-			set { parent = value; }
+            get;
+            set;
 		}
 	}
 }

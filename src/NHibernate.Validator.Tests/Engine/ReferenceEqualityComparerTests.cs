@@ -1,6 +1,7 @@
 using NHibernate.Validator.Engine;
 using NUnit.Framework;
 using SharpTestsEx;
+using System.Collections.Generic;
 
 namespace NHibernate.Validator.Tests.Engine
 {
@@ -22,7 +23,7 @@ namespace NHibernate.Validator.Tests.Engine
 		[Test]
 		public void TwoClassInstances_AreNotEquals()
 		{
-			var rec = new ReferenceEqualityComparer();
+			IEqualityComparer<object> rec = new ReferenceEqualityComparer();
 			var instance = new Entity();
 			rec.Equals(instance, new Entity()).Should().Be.False();
 			rec.Equals(instance, instance).Should().Be.True();
